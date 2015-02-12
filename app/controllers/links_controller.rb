@@ -1,7 +1,7 @@
 class LinksController < ApplicationController
   before_action :set_link, only: [:show, :edit, :update, :destroy]
   before_action :authorized_user, only: [:edit, :update, :destory]
-  befre_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   # GET /links
   # GET /links.json
@@ -41,7 +41,7 @@ class LinksController < ApplicationController
 
   # let user could not edit the url and get to and edit a link that doesn't belong to them
   def authorized_user
-    @link = current_user.links.find_by(id: parameters[:id])
+    @link = current_user.links.find_by(id: params[:id])
     redirect_to links_path, notice: "Not authorized to edit this link" if @link.nil?
   end
 
