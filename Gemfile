@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
-
+# Use devise
+gem 'devise', '~> 3.3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.4'
 # Use sqlite3 as the database for Active Record
